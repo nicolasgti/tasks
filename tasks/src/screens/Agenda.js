@@ -4,7 +4,7 @@ import moment from 'moment'
 import 'moment/locale/pt-br'
 import todayImage from '../../assets/imgs/today.jpg'
 import commonStyles from '../commonStyles'
-import { stringLiteral } from '@babel/types';
+import Task from '../components/Task'
 
 export default class agenda extends Component {
     render(){
@@ -19,9 +19,10 @@ export default class agenda extends Component {
                     </View>
                 </ImageBackground>
                 <View style={styles.taskContainer}>
-                    <Text>Tarefa 1</Text>
-                    <Text>Tarefa 2</Text>
-                    <Text>Tarefa 3</Text>
+                    <Task desc='Tarefa pendente'
+                        estimateAt={new Date()} doneAt={null} />
+                    <Task desc='Tarefa concluida'
+                        estimateAt={new Date()} doneAt={new Date()} />
                 </View>
             </View>
         )
@@ -30,7 +31,7 @@ export default class agenda extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1, 
     },
     background: {
         flex: 3,
